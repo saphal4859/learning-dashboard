@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import './App.css';
+import ChatWidget from './ChatWidget';
 const links = [
   {
      category: 'Spring security',
@@ -35,6 +36,7 @@ function App() {
           )}
         </div>
       </main>
+       <ChatWidget />
     </div>
   );
 }

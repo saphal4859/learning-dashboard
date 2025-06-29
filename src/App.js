@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar';
 import './App.css';
+import sidebarLinks from './components/sidebarLinks';
 import ChatWidget from './ChatWidget';
 const links = [
   {

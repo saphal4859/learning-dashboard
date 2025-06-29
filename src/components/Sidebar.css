@@ -1,21 +1,37 @@
-.sidebar {
-  width: 250px;
+.sidebar-container {
+  width: 60px;
+  transition: width 0.3s ease;
+  overflow: hidden;
   background-color: #f8f9fc;
-  padding: 20px;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+  position: relative;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08); /* soft left shadow */
+  z-index: 2; /* stays on top */
 }
 
-.sidebar .logo {
+.sidebar-container:hover {
+  width: 250px;
+}
+
+.sidebar {
+  padding: 20px;
+    height: 100%;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.04);
+}
+
+.logo {
   font-size: 1.6rem;
   font-weight: bold;
   color: #4e73df;
   margin-bottom: 2rem;
+  white-space: nowrap;
 }
 
 .category {
   margin-bottom: 1rem;
   font-size: 0.9rem;
   white-space: nowrap;
+  
 }
 
 .category-title {
@@ -24,8 +40,30 @@
   margin-bottom: 0.3rem;
   display: flex;
   align-items: center;
+  gap: 8px;
+  position: relative;
+  margin: 4px 0;
+
+}
+.category-title .text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.category-title:hover {
+  background-color: #edf0ff;
+  color: #4e73df;
+  border-radius: 8px;
+  padding: 6px 10px;
 }
 
+.category-title.active-category {
+  background-color: #e0e7ff;
+  color: #4e73df;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
 .menu-items {
   padding-left: 15px;
   display: flex;
@@ -40,18 +78,9 @@
   font-size: 0.88rem;
   transition: color 0.3s;
   border-left: 2px solid transparent;
-}
-
-.menu-link:hover {
-  color: #4e73df;
-  font-weight: 500;
-  border-left: 2px solid #4e73df;
-}
-
-.menu-bullet {
-  margin-right: 6px;
-  font-size: 0.8rem;
-  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .category-title,
 .menu-link {
@@ -59,10 +88,60 @@
   user-select: none;
 }
 
-.menu-link:hover,
-.category-title:hover {
-  transform: translateX(4px);
+.menu-link:hover {
   color: #4e73df;
   font-weight: 500;
-  cursor: pointer;
+  border-left: 2px solid #4e73df;
+  transform: translateX(5px); /* move right slightly */
+  transition: transform 0.2s ease, color 0.3s, border-left 0.3s;
+}
+
+.menu-bullet {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.menu-link.active {
+  background-color: #e0e7ff;
+  font-weight: 600;
+  border-left: 3px solid #4e73df;
+  color: #4e73df;
+}
+.text {
+  transition: opacity 0.3s ease;
+}
+
+.menu-link .text {
+  white-space: normal;       /* allows wrapping */
+  word-wrap: break-word;     /* wrap long words */
+  overflow: visible;
+  line-height: 1.4;
+  display: inline-block;
+  max-width: 170px; /* Optional: ensures nice line breaks inside sidebar */
+}
+
+/* 👇 HIDE ALL TEXT WHEN COLLAPSED */
+.sidebar-container:not(:hover) .text {
+  display: none;
+}
+
+/* 👇 CENTER ICONS WHEN COLLAPSED */
+.sidebar-container:not(:hover) .category-title,
+.sidebar-container:not(:hover) .menu-link {
+  justify-content: center;
+}
+
+/* 👇 OPTIONAL: Tooltip on hover in collapsed state */
+.sidebar-container:not(:hover) .category-title:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 60px;
+  top: 0;
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  z-index: 10;
 }

@@ -12,8 +12,8 @@ function Sidebar({ links, onSelectLink }) {
   const handleMouseLeave = () => {
     setOpenCategory(null); // auto-close when sidebar is left
   };
-
-  return (
+console.log("Sidebar links received:", links);
+   return (
     <aside className="sidebar-container" onMouseLeave={handleMouseLeave}>
       <div className="sidebar">
         <h2 className="logo">

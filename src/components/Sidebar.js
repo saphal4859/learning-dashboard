@@ -17,7 +17,7 @@ console.log("Sidebar links received:", links);
     <aside className="sidebar-container" onMouseLeave={handleMouseLeave}>
       <div className="sidebar">
         <h2 className="logo">
-          <span className="text">LearnHub</span>
+          <span className="text">Topics</span>
         </h2>
 
         {links.map((cat, index) => (

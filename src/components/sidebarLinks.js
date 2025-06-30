@@ -72,6 +72,14 @@ const sidebarLinks = [
         name : "Forms",
         url : "https://doc.clickup.com/90131482853/d/h/2ky42j75-1093/ce92b6ed5bac4eb"
       },
+      {
+        name : "Tailwind CSS",
+        url : "https://doc.clickup.com/90131482853/d/h/2ky42j75-1773/cc6bd4fac6f6d05"
+      },
+      {
+        name : "Routing",
+        url : "https://doc.clickup.com/90131482853/d/h/2ky42j75-1793/727cedd7d10600f"
+      }
     ]
   },
   {

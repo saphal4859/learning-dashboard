@@ -80,6 +80,11 @@ const sidebarLinks = [
         name : "Routing",
         url : "https://doc.clickup.com/90131482853/d/h/2ky42j75-1793/727cedd7d10600f"
       }
+      ,
+      {
+        name : "Redux",
+        url : "https://doc.clickup.com/90131482853/d/h/2ky42j75-1833/8ad8424954cc1b1"
+      }
     ]
   },
   {
